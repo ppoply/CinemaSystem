@@ -1,29 +1,37 @@
 package com.cinemasystem;
 
-public interface Economy
+public abstract class Seat
 {
-    public static double
-}
-public class Seat
-{
-    private char row;
-    private int col;
-    private boolean occupied;
+    protected char row;
+    protected int col;
+    protected boolean occupied;
 
-    public String toString();
+    public String toString()
+    {
+        return "" + row + col;
+    }
 
-    /*
-    Should have a constructor
-     */
-
-    private double price;
+    public abstract double getPrice();
 }
 
-public class EconomySeat extends Seat
+class EconomySeat extends Seat
 {
+    public double getPrice()
+    {
+        /*
+        Reads from a file , to get the value of economy seat price
+         */
+        return 8;
+    }
 }
-
-public class VIPSeat extends Seat
+class VIPSeat extends Seat
 {
+    public double getPrice()
+    {
+        /*
+        Reads from a file , to get the value of VIP seat price
+         */
+        return 10;
+    }
 }
 
