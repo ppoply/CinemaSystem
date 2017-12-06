@@ -12,7 +12,7 @@ public class Seat
     {
         row = r;
         col =c;
-        occupied = true;
+        occupied = false;
     }
 
     public String toString()
