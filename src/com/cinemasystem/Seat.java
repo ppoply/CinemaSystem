@@ -1,37 +1,52 @@
 package com.cinemasystem;
 
-public abstract class Seat
+public class Seat
 {
     protected char row;
     protected int col;
-    protected boolean occupied;
+    protected String type;
+    protected boolean occupied, vip, regular;
+
+
+    public Seat(char r, int c)
+    {
+        row = r;
+        col =c;
+        occupied = true;
+    }
 
     public String toString()
     {
-        return "" + row + col;
+        return type+"/nRow:"+row+"/nSeat Number:"+col;
     }
 
-    public abstract double getPrice();
+    public static void main(String[] args)
+    {
+        
+    }
 }
 
 class EconomySeat extends Seat
 {
-    public double getPrice()
+    final protected int price = 35;
+    public EconomySeat(char r, int c)
     {
-        /*
-        Reads from a file , to get the value of economy seat price
-         */
-        return 8;
+        super(r, c);
+        type = "Economy";
+        vip = false;
+        regular = true;
     }
 }
+
 class VIPSeat extends Seat
 {
-    public double getPrice()
+    final protected int price = 55;
+    public VIPSeat(char r, int c)
     {
-        /*
-        Reads from a file , to get the value of VIP seat price
-         */
-        return 10;
+        super(r,c);
+        type= "VIP";
+        vip = true;
+        regular = false;
     }
 }
 
